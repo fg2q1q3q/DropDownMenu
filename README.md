@@ -90,7 +90,7 @@ java代码中设置如下：
 
 ![demo下载][1]
 ##联系我
-如有疑问请提issue或QQ群：137824028
+如有疑问请提[issue](https://github.com/fg2q1q3q/DropDownMenu/issues)或[<img src="http://pub.idqqimg.com/wpa/images/group.png"/>](http://shang.qq.com/wpa/qunwpa?idkey=03fba535df405bc7b1ad645bb8d34a0b3dbb97d284a906341dcecc98cdb84360)
 
 
   [1]: https://raw.githubusercontent.com/fg2q1q3q/DropDownMenu/master/art/VGSx.png
