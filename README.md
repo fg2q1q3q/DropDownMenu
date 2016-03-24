@@ -38,7 +38,7 @@
 ##使用教程
 添加DropDownMenu 到你的布局文件，如下
 ```
-<com.yyydjk.library.DropDownMenu
+<com.zxl.library.DropDownMenu
     android:id="@+id/dropDownMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
