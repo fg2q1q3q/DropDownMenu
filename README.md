@@ -3,7 +3,7 @@
 本例是在[DropDownMenu](https://github.com/dongjunkun/DropDownMenu)基础上改进而来
 ####相比而言增加de特性：
  - 增加三种默认样式类型：TYPE_LIST_CITY，TYPE_LIST_SIMPLE，TYPE_GRID
- - 增加默认样式点击回调
+ - 增加默认样式点击回调(只需关心传入数组和选择结果,不相关内容无须关心)
  - 修改传参，更易于理解和使用
  - 增加最大高度限制属性
  - 如果你使用默认样式，只需要传递字符串数组即可，如果使用自定义样式只需传递customview即可
