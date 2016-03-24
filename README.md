@@ -47,10 +47,10 @@
      * KEY对应TYPE（上文常量）
      * VALUE对应数据源(非TYPE_CUSTOM-->string[]或TYPE_CUSTOM-->customView)
      */
-    public void setDropDownMenu(
-    @NonNull List<String> tabTexts, 
-    @NonNull List<HashMap<String,Object>> viewDatas,
-    @NonNull View contentView){}
+
+    public void setDropDownMenu(@NonNull List<String> tabTexts, 
+        @NonNull List<HashMap<String,Object>> viewDatas,@NonNull View contentView){
+    }
 ```
 ###使用教程
 添加DropDownMenu 到你的布局文件，如下
