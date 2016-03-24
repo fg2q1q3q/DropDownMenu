@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.fg2q1q3q'
-
+group='com.github.fg2q1q3q'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -24,27 +24,4 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-}
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'drop-dowm-menu'
-
-    publishedGroupId = 'com.inthecheesefactory.thecheeselibrary'
-    libraryName = 'DropDownMenu'
-    artifact = 'drop-dowm-menu'
-
-    libraryDescription = 'A library of select menu like meituan'
-
-    siteUrl = 'https://github.com/fg2q1q3q/DropDownMenu'
-    gitUrl = 'https://github.com/fg2q1q3q/DropDownMenu.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'fg2q1q3q'
-    developerName = 'zxl'
-    developerEmail = 'zhangxiaolong1234@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
 }
