@@ -1,4 +1,4 @@
-
+[![](https://jitpack.io/v/fg2q1q3q/DropDownMenu.svg)](https://jitpack.io/#fg2q1q3q/DropDownMenu)
 ## 简介
 本例是在[DropDownMenu](http://www.jianshu.com/p/d9407f799d2d)基础上改进而来
 ##相比而言增加如下特性：
@@ -18,7 +18,21 @@
 <img src="https://github.com/fg2q1q3q/DropDownMenu/blob/master/art/d.gif?raw=true"/>
 
 ##Gradle
-    compile 'com.github.fg2q1q3q:DropDownMenu:1.0.0'
+在project 中build.gradle下增加(已有跳过)
+```
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+```
+在app module中增加
+```
+	dependencies {
+	        compile 'com.github.fg2q1q3q:DropDownMenu:1.0.0'
+	}
+```
 使用相关核心源码及参数说明：
 
 ```
