@@ -1,4 +1,4 @@
-<manifest package="com.yyydjk.library"
+<manifest package="com.zxl.library"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application android:allowBackup="true"

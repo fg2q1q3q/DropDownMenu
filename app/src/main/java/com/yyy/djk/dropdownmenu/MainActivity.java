@@ -2,12 +2,11 @@ package com.yyy.djk.dropdownmenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yyydjk.library.DropDownMenu;
+import com.zxl.library.DropDownMenu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
