@@ -1,3 +1,4 @@
+
 ## 简介
 本例是在[DropDownMenu](http://www.jianshu.com/p/d9407f799d2d)基础上改进而来
 ##相比而言增加如下特性：
@@ -17,7 +18,7 @@
 <img src="https://github.com/fg2q1q3q/DropDownMenu/blob/master/art/d.gif?raw=true"/>
 
 ##Gradle
-    compile 'com.github.dongjunkun:DropDownMenu:1.0.3'
+    compile 'com.github.fg2q1q3q:DropDownMenu:1.0.0'
 使用相关核心源码及参数说明：
 
 ```
@@ -72,6 +73,7 @@ java代码中设置如下：
      */
 ```
 详情可参考demo，[点此下载](https://www.pgyer.com/VGSx)或扫描二维码
+
 ![demo下载][1]
 ##联系我
 如有疑问请提issue或QQ群：137824028
