@@ -1,8 +1,8 @@
 [![](https://jitpack.io/v/fg2q1q3q/DropDownMenu.svg)](https://jitpack.io/#fg2q1q3q/DropDownMenu)
 ## 简介
 本例是在[DropDownMenu](https://github.com/dongjunkun/DropDownMenu)基础上改进而来
-1.1.0修改：
-增加选中后是否改变tab颜色属性,详情参考demo
+####1.1.0修改：
+-增加选中后是否改变tab颜色属性,详情参考demo
 ```
 app:ddneedSetSlectedColor="true"
 ```
