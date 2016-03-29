@@ -34,7 +34,7 @@ app:ddneedSetSlectedColor="true"
 在app module中增加
 ```
 	dependencies {
-	        compile 'com.github.fg2q1q3q:DropDownMenu:1.0.0'
+	        compile 'com.github.fg2q1q3q:DropDownMenu:1.1.0'
 	}
 ```
 使用相关核心源码及参数说明：
