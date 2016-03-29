@@ -1,6 +1,11 @@
 [![](https://jitpack.io/v/fg2q1q3q/DropDownMenu.svg)](https://jitpack.io/#fg2q1q3q/DropDownMenu)
 ## 简介
 本例是在[DropDownMenu](https://github.com/dongjunkun/DropDownMenu)基础上改进而来
+1.1.0修改：
+增加选中后是否改变tab颜色属性,详情参考demo
+```
+app:ddneedSetSlectedColor="true"
+```
 ####相比而言增加de特性：
  - 增加三种默认样式类型：TYPE_LIST_CITY，TYPE_LIST_SIMPLE，TYPE_GRID
  - 增加默认样式点击回调(只需关心传入数组和选择结果,不相关内容无须关心)
@@ -69,6 +74,7 @@
     app:ddmaskColor="@color/mask_color"     //遮罩颜色，一般是半透明
     app:ddmenuBackgroundColor="@color/white" //tab 背景颜色
     app:ddmenuMaxHeight="280dp"//筛选菜单最大高度，默认为wrap
+    app:ddneedSetSlectedColor="true"//设置选中option后tab是否改变颜色
     ...
  />
 ```
