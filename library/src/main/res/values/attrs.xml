@@ -2,8 +2,6 @@
 <resources>
     <declare-styleable name="DropDownMenu">
 
-        <attr name="ddunderlineColor" format="color"/>
-        <attr name="dddividerColor" format="color"/>
         <attr name="ddtextSelectedColor" format="color"/>
         <attr name="ddtextUnselectedColor" format="color"/>
         <attr name="ddmenuBackgroundColor" format="color"/>

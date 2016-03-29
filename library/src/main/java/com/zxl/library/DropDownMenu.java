@@ -42,7 +42,7 @@ public class DropDownMenu extends LinearLayout {
     private int current_tab_position = -1;
 
     //分割线颜色
-    private int dividerColor = 0xffcccccc;
+//    private int dividerColor = 0xffcccccc;
     //tab选中颜色
     private int textSelectedColor = 0xff890c85;
     //tab未选中颜色
@@ -77,8 +77,6 @@ public class DropDownMenu extends LinearLayout {
         int menuBackgroundColor = 0xffffffff;
         int underlineColor = 0xffcccccc;
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DropDownMenu);
-        underlineColor = a.getColor(R.styleable.DropDownMenu_ddunderlineColor, underlineColor);
-        dividerColor = a.getColor(R.styleable.DropDownMenu_dddividerColor, dividerColor);
         textSelectedColor = a.getColor(R.styleable.DropDownMenu_ddtextSelectedColor, textSelectedColor);
         needSetSelectedColor = a.getBoolean(R.styleable.DropDownMenu_ddneedSetSlectedColor, needSetSelectedColor);
         textUnselectedColor = a.getColor(R.styleable.DropDownMenu_ddtextUnselectedColor, textUnselectedColor);
@@ -123,7 +121,7 @@ public class DropDownMenu extends LinearLayout {
 
     public static final String KEY = "type_key";
     public static final String VALUE = "type_value";
-
+    public static final String SELECT_POSITION = "type_position";
     //一共包含四中类型：三种默认和自定义
     public static final int TYPE_LIST_CITY = 1;
     public static final int TYPE_LIST_SIMPLE = 2;
@@ -168,24 +166,33 @@ public class DropDownMenu extends LinearLayout {
             HashMap<String, Object> map = viewDatas.get(i);
             int key = (int) map.get(KEY);
             Object value = map.get(VALUE);
+            int select_position = -1;
+            try {
+                select_position = (int) map.get(SELECT_POSITION);
+            } catch (Exception e) {
+            }
+            if (select_position != -1 && select_position < 0) {
+                throw new IllegalArgumentException("the select_position must be >= 0");
+            }
+            Log.d("zxl", "***********" + select_position);
             switch (key) {
                 case TYPE_LIST_CITY:
-                    if (value instanceof String[])
-                        view = setCityListView((String[]) value, i);
+                    if (value instanceof String[] && select_position < ((String[]) value).length)
+                        view = setCityListView((String[]) value, i, select_position);
                     else
-                        throw new IllegalArgumentException("the type TYPE_LIST_CITY should mapping String[]");
+                        throw new IllegalArgumentException("the type TYPE_LIST_CITY should mapping String[] and the select_position must be < array length");
                     break;
                 case TYPE_LIST_SIMPLE:
-                    if (value instanceof String[])
-                        view = setSimpleListView((String[]) value, i);
+                    if (value instanceof String[] && select_position < ((String[]) value).length)
+                        view = setSimpleListView((String[]) value, i, select_position);
                     else
-                        throw new IllegalArgumentException("the type TYPE_LIST_SIMPLE should mapping String[]");
+                        throw new IllegalArgumentException("the type TYPE_LIST_SIMPLE should mapping String[] and the select_position must be < array length");
                     break;
                 case TYPE_GRID:
-                    if (value instanceof String[])
-                        view = setGridView((String[]) value, i);
+                    if (value instanceof String[] && select_position < ((String[]) value).length)
+                        view = setGridView((String[]) value, i, select_position);
                     else
-                        throw new IllegalArgumentException("the type TYPE_GRID should mapping String[]");
+                        throw new IllegalArgumentException("the type TYPE_GRID should mapping String[] and the select_position must be < array length");
                     break;
                 default:
                     if (value instanceof View)
@@ -200,16 +207,20 @@ public class DropDownMenu extends LinearLayout {
 
     }
 
-    private View setCityListView(final String[] arr, final int index) {
+    private View setCityListView(final String[] arr, final int index, int select_position) {
         ListView view = new ListView(getContext());
         view.setDividerHeight(0);
         final GirdDropDownAdapter adapter = new GirdDropDownAdapter(getContext(), Arrays.asList(arr));
+        if (select_position != -1) {
+            adapter.setCheckItem(select_position);
+            setTabText(index, arr[select_position]);
+        }
         view.setAdapter(adapter);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 adapter.setCheckItem(position);
-                setTabText(arr[position]);
+                setTabText(current_tab_position, arr[position]);
                 closeMenu();
                 lis.onSelectDefaultMenu(index, position, adapter.getItem(position));
             }
@@ -217,16 +228,20 @@ public class DropDownMenu extends LinearLayout {
         return view;
     }
 
-    private View setSimpleListView(final String[] arr, final int index) {
+    private View setSimpleListView(final String[] arr, final int index, int select_position) {
         ListView view = new ListView(getContext());
         view.setDividerHeight(0);
         final ListDropDownAdapter adapter = new ListDropDownAdapter(getContext(), Arrays.asList(arr));
+        if (select_position != -1) {
+            adapter.setCheckItem(select_position);
+            setTabText(index, arr[select_position]);
+        }
         view.setAdapter(adapter);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 adapter.setCheckItem(position);
-                setTabText(arr[position]);
+                setTabText(current_tab_position, arr[position]);
                 closeMenu();
                 lis.onSelectDefaultMenu(index, position, adapter.getItem(position));
             }
@@ -234,17 +249,21 @@ public class DropDownMenu extends LinearLayout {
         return view;
     }
 
-    private View setGridView(final String[] arr, final int index) {
+    private View setGridView(final String[] arr, final int index, int select_position) {
         final ConstellationAdapter adapter = new ConstellationAdapter(getContext(), Arrays.asList(arr));
         LayoutInflater li = LayoutInflater.from(getContext());
         View v = li.inflate(R.layout.drop_menu_grid_layout, null);
         GridView grid = (GridView) v.findViewById(R.id.constellation);
+        if (select_position != -1) {
+            adapter.setCheckItem(select_position);
+            setTabText(index, arr[select_position]);
+        }
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 adapter.setCheckItem(position);
-                setTabText(arr[position]);
+                setTabText(current_tab_position, arr[position]);
                 closeMenu();
                 lis.onSelectDefaultMenu(index, position, adapter.getItem(position));
             }
@@ -271,13 +290,15 @@ public class DropDownMenu extends LinearLayout {
             }
         });
         tabMenuView.addView(tab);
+        tabMenuView.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
+        tabMenuView.setDividerDrawable(getResources().getDrawable(R.drawable.divider_line));
         //添加分割线
-        if (i < tabTexts.size() - 1) {
+       /* if (i < tabTexts.size() - 1) {
             View view = new View(getContext());
             view.setLayoutParams(new LayoutParams(dpTpPx(0.5f), ViewGroup.LayoutParams.MATCH_PARENT));
             view.setBackgroundColor(dividerColor);
             tabMenuView.addView(view);
-        }
+        }*/
     }
 
     /**
@@ -285,14 +306,14 @@ public class DropDownMenu extends LinearLayout {
      *
      * @param text
      */
-    public void setTabText(String text) {
-        if (current_tab_position != -1) {
-            if (needSetSelectedColor){
-                ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textSelectedColor);
-            }else{
-                ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textUnselectedColor);
+    public void setTabText(int tabIndex, String text) {
+        if (tabIndex != -1) {
+            if (needSetSelectedColor) {
+                ((TextView) tabMenuView.getChildAt(tabIndex)).setTextColor(textSelectedColor);
+            } else {
+                ((TextView) tabMenuView.getChildAt(tabIndex)).setTextColor(textUnselectedColor);
             }
-            ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
+            ((TextView) tabMenuView.getChildAt(tabIndex)).setText(text);
         }
     }
 
@@ -333,7 +354,7 @@ public class DropDownMenu extends LinearLayout {
      * @param target
      */
     private void switchMenu(View target) {
-        for (int i = 0; i < tabMenuView.getChildCount(); i = i + 2) {
+        for (int i = 0; i < tabMenuView.getChildCount(); i++) {
             if (target == tabMenuView.getChildAt(i)) {
                 if (current_tab_position == i) {
                     closeMenu();
@@ -343,9 +364,9 @@ public class DropDownMenu extends LinearLayout {
                         popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_in));
                         maskView.setVisibility(VISIBLE);
                         maskView.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_mask_in));
-                        popupMenuViews.getChildAt(i / 2).setVisibility(View.VISIBLE);
+                        popupMenuViews.getChildAt(i).setVisibility(View.VISIBLE);
                     } else {
-                        popupMenuViews.getChildAt(i / 2).setVisibility(View.VISIBLE);
+                        popupMenuViews.getChildAt(i).setVisibility(View.VISIBLE);
                     }
                     current_tab_position = i;
                     ((TextView) tabMenuView.getChildAt(i)).setTextColor(textSelectedColor);
@@ -356,7 +377,7 @@ public class DropDownMenu extends LinearLayout {
 //                ((TextView) tabMenuView.getChildAt(i)).setTextColor(textUnselectedColor);
                 ((TextView) tabMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
                         getResources().getDrawable(menuUnselectedIcon), null);
-                popupMenuViews.getChildAt(i / 2).setVisibility(View.GONE);
+                popupMenuViews.getChildAt(i).setVisibility(View.GONE);
             }
         }
     }

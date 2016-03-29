@@ -3,7 +3,6 @@
     android:id="@+id/dropDownMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:dddividerColor="@color/gray"
     app:ddmaskColor="@color/mask_color"
     app:ddmenuBackgroundColor="@color/white"
     app:ddmenuMaxHeight="280dp"
@@ -12,5 +11,4 @@
     app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
     app:ddneedSetSlectedColor="true"
     app:ddtextSelectedColor="@color/drop_down_selected"
-    app:ddtextUnselectedColor="@color/drop_down_unselected"
-    app:ddunderlineColor="@color/gray" />
+    app:ddtextUnselectedColor="@color/drop_down_unselected" />

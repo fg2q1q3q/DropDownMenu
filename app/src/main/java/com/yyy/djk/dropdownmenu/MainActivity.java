@@ -58,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
             switch (types[i]) {
                 case DropDownMenu.TYPE_LIST_CITY:
                     map.put(DropDownMenu.VALUE, citys);
+                    map.put(DropDownMenu.SELECT_POSITION,2);
                     break;
                 case DropDownMenu.TYPE_LIST_SIMPLE:
                     map.put(DropDownMenu.VALUE, ages);
+                    map.put(DropDownMenu.SELECT_POSITION,5);
                     break;
                 case DropDownMenu.TYPE_GRID:
                     map.put(DropDownMenu.VALUE, constellations);
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDropDownMenu.setTabText("自定义");//设置tab标签文字
+                mDropDownMenu.setTabText(2,"自定义");//设置tab标签文字
                 mDropDownMenu.closeMenu();//关闭menu
             }
         });
