@@ -5,7 +5,7 @@
  - 增加选中后是否改变tab颜色属性
  - 增加初始化设置默认选项功能
  - 去除tab分割线颜色自定义属性
- - 详情参考demo
+ - 暂不支持多选，如需请自定义view即可，后续添加，详情参考demo
 ```
 app:ddneedSetSlectedColor="true"
 ```
@@ -37,7 +37,7 @@ app:ddneedSetSlectedColor="true"
 在app module中增加
 ```
 	dependencies {
-	        compile 'com.github.fg2q1q3q:DropDownMenu:1.1.0'
+	        compile 'com.github.fg2q1q3q:DropDownMenu:1.1.1'
 	}
 ```
 使用相关核心源码及参数说明：
