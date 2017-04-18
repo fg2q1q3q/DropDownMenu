@@ -1,7 +1,7 @@
 [![](https://jitpack.io/v/fg2q1q3q/DropDownMenu.svg)](https://jitpack.io/#fg2q1q3q/DropDownMenu)
 ## 简介
 本例是在[DropDownMenu](https://github.com/dongjunkun/DropDownMenu)基础上改进而来
-####1.1.1修改：
+#### 1.1.1修改：
  - 增加选中后是否改变tab颜色属性
  - 增加初始化设置默认选项功能
  - 去除tab分割线颜色自定义属性
@@ -9,22 +9,22 @@
 ```
 app:ddneedSetSlectedColor="true"
 ```
-####相比而言增加de特性：
+#### 相比而言增加de特性：
  - 增加三种默认样式类型：TYPE_LIST_CITY，TYPE_LIST_SIMPLE，TYPE_GRID
  - 增加默认样式点击回调(只需关心传入数组和选择结果,不相关内容无须关心)
  - 修改传参，更易于理解和使用
  - 增加最大高度限制属性
  - 如果你使用默认样式，只需要传递字符串数组即可，如果使用自定义样式只需传递customview即可
 
-####以下为原始特性
+#### 以下为原始特性
  - 支持多级菜单
  - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏效果等
  - 并非用popupWindow实现，无卡顿
 
-##ScreenShot
+## ScreenShot
 <img src="https://github.com/fg2q1q3q/DropDownMenu/blob/master/art/d.gif?raw=true"/>
 
-##Gradle
+## Gradle
 在project 中build.gradle下增加(已有跳过)
 ```
 	allprojects {
@@ -60,7 +60,7 @@ app:ddneedSetSlectedColor="true"
         @NonNull List<HashMap<String,Object>> viewDatas,@NonNull View contentView){
     }
 ```
-###使用教程
+### 使用教程
 添加DropDownMenu 到你的布局文件，如下
 ```
 <com.zxl.library.DropDownMenu
@@ -99,7 +99,7 @@ java代码中设置如下：
 详情可参考demo，[点此下载](https://www.pgyer.com/VGSx)或扫描二维码
 
 ![demo下载][1]
-##联系我
+## 联系我
 如有疑问请提[issue](https://github.com/fg2q1q3q/DropDownMenu/issues)或[<img src="http://pub.idqqimg.com/wpa/images/group.png"/>](http://shang.qq.com/wpa/qunwpa?idkey=03fba535df405bc7b1ad645bb8d34a0b3dbb97d284a906341dcecc98cdb84360)
 
 
