@@ -1,5 +1,5 @@
 [![](https://jitpack.io/v/fg2q1q3q/DropDownMenu.svg)](https://jitpack.io/#fg2q1q3q/DropDownMenu)
-## 简介
+## 简介（现在应该已经不需要了）
 本例是在[DropDownMenu](https://github.com/dongjunkun/DropDownMenu)基础上改进而来
 ####1.1.1修改：
  - 增加选中后是否改变tab颜色属性
